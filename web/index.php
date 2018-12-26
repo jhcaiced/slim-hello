@@ -7,8 +7,7 @@ require_once '../vendor/autoload.php';
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
-    $response->getbody()->write("Hello, $name");
-    return $response;
+    return $response->withJson(['name' => $name]);
 });
 
 $app->run();
